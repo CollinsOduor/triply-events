@@ -1,0 +1,54 @@
+version: "3.8"
+services:
+  gateway:
+    build:
+      context: /api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - users
+      - events
+      - payment
+  users:
+    build:
+      context: /users
+      dockerfile: Dockerfile
+    volumes:
+      - .:/users
+    depends_on:
+      - db
+    ports:
+      - "3001:3001"
+  events:
+    build:
+      context: /events
+      dockerfile: Dockerfile
+    volumes:
+      - .:/events
+    depends_on:
+      - db
+    ports:
+      - "3003:3003"
+  payment:
+    build:
+      context: /payment
+      dockerfile: Dockerfile
+    volumes:
+      - .:/payment
+    depends_on:
+      - db
+    ports:
+      - "3002:3002"
+  db:
+    build:
+      context: /database
+      dockerfile: Dockerfile
+    volumes:
+      - .:/mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: toor
