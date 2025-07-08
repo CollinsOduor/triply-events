@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { EventSchema } from './schema/event.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Event', schema: EventSchema }]), MongooseModule.forRoot("mongodb://127.0.0.1:27017", {
+  imports: [MongooseModule.forFeature([{ name: 'Event', schema: EventSchema }]), MongooseModule.forRoot("mongodb://127.0.0.1:27018", {
     dbName: "triply",
     auth: {
       username: "root",

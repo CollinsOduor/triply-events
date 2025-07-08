@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { PaymentSchema } from './schema/payment.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Payment', schema: PaymentSchema }]), MongooseModule.forRoot("mongodb://127.0.0.1:27017", {
+  imports: [MongooseModule.forFeature([{ name: 'Payment', schema: PaymentSchema }]), MongooseModule.forRoot("mongodb://127.0.0.1:27018", {
     dbName: "triply",
     auth: {
       username: "root",

@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from './user.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]), MongooseModule.forRoot("mongodb://127.0.0.1:27017", {
+  imports: [MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]), MongooseModule.forRoot("mongodb://127.0.0.1:27018", {
     dbName: "triply",
     auth: {
       username: "root",

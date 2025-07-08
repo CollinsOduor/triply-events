@@ -1,5 +1,4 @@
 FROM --platform=linux/arm64/v8 mongo:4.4.6
 ENV MONGO_INITDB_ROOT_USERNAME=root
 ENV MONGO_INITDB_ROOT_PASSWORD=toor
-EXPOSE 27017
 CMD ["mongod"]
